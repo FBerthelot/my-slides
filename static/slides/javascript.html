@@ -60,8 +60,9 @@
                   <!-- .slide: data-background="#D8C99B" -->
                   ## Les racines du JS, ES5
 
+                  - Instruction & Commentaires
+                  - Variable & Assignation
                   - Types
-                  - Variables
                   - Fonctions
                   - Assertions
                   - Scopes
@@ -71,13 +72,32 @@
 
 
                   <!-- .slide: data-background="#D8C99B" -->
-                  ## Types
+                  ## INSTRUCTION & COMMENTAIRES
 
-                  JavaScript est un langage faiblement typé<br>
-                  le typage est induit !
                   ```javascript
                     // Un commentaire
+                    /* Un commentaire */
+                    var maVariable; // le ; indique la fin d'une instruction
+                    /* Ceci 
+                    est
+                    un
+                    commentaire
+                    */
 
+                  ```
+
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## VARIABLE & ASSIGNATION
+
+                  ```javascript
+                    var uneChaineDeCaractere = 'Hello zenika';
+                  ```
+
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## Types
+                  ```javascript
                     // types prémitifs
                     undefined;
                     null;
@@ -92,17 +112,63 @@
 
 
                   <!-- .slide: data-background="#D8C99B" -->
-                  ## Variables
-
+                  ## Types
+                    JavaScript est un langage faiblement typé
                   ```javascript
-                    var maVariable; // undefined
+                  var unNombre: number = 1;
+                  var unBooleen: boolean = true;
+                  var uneVariable = null;
+                  var uneChaineDeCaractere: string = 'toto';
+               
+                  var unTableau: [] = [1, true, 'une string', {}];
+                  var unObjet: obj = {cle: 1};
+                  ```
 
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## Types
+                    JavaScript est un langage faiblement typé
+
+                    le typage est induit !
+                  ```javascript
+                    // types prémitifs
                     var unNombre = 1;
                     var chaineDeCaractere = 'toto'; /* doubleQuote ça marche aussi */
                     var booleen = true;
                     maVariable = null;
                     maVariable = uneFonction;
                     maVariable = unNombre;
+                    
+                    // types par références
+                    [1, true, 'une string', {}]; // array
+                    {cle: 1}; // object
+                  ```
+
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## TYPE PRIMITIF
+                  ```javascript
+                  var a = 10;
+
+                  var b = a;
+                 
+                  b = 20;
+                 
+                  console.log(a);//10
+                  console.log(b);//20
+                  ```
+
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## TYPE PAR RÉFÉRENCE
+                  ```javascript
+                  var x = {name: 'John'};
+
+                  var y = x;
+                  
+                  y.name = 'David';
+                  
+                  console.log(x.name);//'David'
                   ```
 
 
