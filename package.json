@@ -6,7 +6,7 @@
   "license": "SEE LICENSE IN LICENSE.md FILE",
   "private": true,
   "scripts": {
-    "reveal": "cp -r node_modules/reveal.js/ static/reveal/",
+    "reveal": "rimraf static/reveal/ && cpr node_modules/reveal.js/ static/reveal/",
     "dev": "npm run reveal && nuxt",
     "build": "npm run reveal && nuxt build",
     "start": "npm run reveal && nuxt start",
@@ -24,10 +24,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "cpr": "^3.0.1",
     "eslint": "^5.5.0",
     "eslint-config-xo-space": "^0.20.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "rimraf": "^2.6.3"
   }
 }

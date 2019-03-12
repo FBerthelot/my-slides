@@ -213,11 +213,13 @@
                    // a est VRAI ET b est VRAI 
 
                    var maVariable = true && false; // false
+                   var maVariable = true && true; // true
 
                    // a OU b est VRAI si et seulement si 
                    // a est VRAI OU b est VRAI
 
-                   var maVariable = false || "Chat"; // "Chat"
+                   var maVariable = false || true; // true
+                   var maVariable = false || false; // false
                   ```
 
 
@@ -225,10 +227,10 @@
                   ## Lois de Morgan
                   ```javascript
                    // non (A ou B) = (non A) et (non B)
-                   !(A || B) = !(A) && !(B)  
+                   !(A || B) = !A && !B
 
                    // non (A et B) = (non A) ou (non B)
-                   !(A && B) = !(A) || !(B) 
+                   !(A && B) = !A || !B
                   ```
 
 
@@ -271,13 +273,17 @@
                   ```Javascript
                   var variable1 = true;
                   var variable2 = false;
-
+                  
+                  // Qu'est ce qui sera affiché dans la console ?         
                   if (variable1 || variable2) {
-                     console.log('ça passe');
+                     console.log('L\'une des conditions est vraie'); 
                   }
                   else if (variable1 && variable2) {
-                     console.log(('ça passe pas x2');
+                     console.log('Les deux conditions sont vraies');
                   }
+                  else {
+                      console.log('La condition est fausse');
+                  } // L'une des conditions est vraie sera affiché dans la console
                   ```
 
                   
@@ -303,36 +309,51 @@
                   <!-- .slide: data-background="#D8C99B" -->
                   ## Boucles
 
-                  Du classique : `for` et `while`
+                  Du classique : `while`
 
                   ```javascript
                   var it = 0;
-                  while (it < 10) {
+
+                  while (it < 10) { 
                     it++;
                   }
 
+                  console.log(it); // 10
+
                   do {
-                    it++;
+                    it++; 
                   } while(it < 10)
 
-                  for (var i = 0; i < 10; i++;) {}
+                  console.log(it); // 11
+                  ```
+
+
+                  <!-- .slide: data-background="#D8C99B" -->
+                  ## Boucles
+
+                  Au classique : `for`
+
+                  ```javascript
+                  for (var i = 0; i < 10; i++;) {
+                      console.log(i); // 0, puis 1, 2, 3, 4, 5, 6, 7, 8, 9
+                  }
 
                   for (var i in [1, 'a', 3, '5']) {
                      console.log(i); // 0, puis 1, puis 2, puis 3
                   }
                   ```
 
-
+                  
                 <!-- .slide: data-background="#D8C99B" -->
                  ## Function Hoisting 
-                 Les déclarations de fonctions sont toujours exécuté avant le reste
+                 Les déclarations de fonctions sont toujours exécutées avant le reste
 
                  ```javascript
                  // Definition hissée!
                     definitionHisse();
 
                  // TypeError: ce n'est pas une fonction
-                    definitionNotHisse();
+                    definitionPasHisse();
 
                     function definitionHisse() {
                         console.log("Definition hissée!");
@@ -361,7 +382,7 @@
                     if (true) {
                       var banana = 'banana';
                     }
-                    console.log(banana); // 'banana';
+                    console.log(banana); //banana
                   }
                   ```
                   Notes: On peux déclarer les fonctions dans n'importe quel ordre
@@ -370,16 +391,16 @@
                   <!-- .slide: data-background="#D8C99B" -->
                   ## Closure
 
-                  Une fonction capture le scope parent !
+                  Une fonction capture le scope parent ! Une fonction déclarée dans un block a accès à son block parent
 
                   ```javascript
                   var bar = 'hello';
 
                   function foo () {
-                      console.log(bar);
+                    console.log(bar);
                   }
 
-                  foo();    // 'hello'
+                  foo(); // 'hello'
 
                   bar = 'world';
 
@@ -390,17 +411,17 @@
                  <!-- .slide: data-background="#D8C99B" -->
                  ## Programmation orientée objet
 
-                 Les classes sont des fonctions (constructeurs) en JS
+                 Les classes sont des fonctions (constructeurs) en JS.
 
                  ```javascript
-                  function humain (size) {
-                   this.manger = function () {
-                    console.log('Miam');
+                  function Humain (size) {
+                    this.size = size;
+                    this.manger = function () {
+                    return "Miam";
                    }
-                   this.size = size;
                   }
 
-                  var chloe = new humain("1m68");
+                  var chloe = new Humain("1m68"); //Création nouvelle instance
 
                   console.log(chloe.manger()); // Miam
                   console.log(chloe.size); // 1m68
@@ -432,14 +453,14 @@
              
 
                   ```javascript
-                  function humain () {
+                  function Humain () {
                    this.manger = function () {
-                    console.log('Miam');
+                    return "Miam";
                    }
                   }
 
-                  var chloe = new humain();
-                  var marc = new humain();
+                  var chloe = new Humain();
+                  var marc = new Humain();
                   marc.manger = function () {
                       return "Ravioli";
                   }
@@ -459,14 +480,14 @@
              
 
                   ```javascript
-                  function humain () {}
+                  function Humain () {}
 
-                  humain.prototype.manger = function () {
+                  Humain.prototype.manger = function () {
                       return "Miam";
                   }
 
-                  var chloe = new humain();
-                  var marc = new humain();
+                  var chloe = new Humain();
+                  var marc = new Humain();
                   marc.__proto__.manger = function () {
                       return "Ravioli";
                   }
@@ -482,19 +503,19 @@
                   En JS on se sert de la chaîne prototypal pour hériter
 
                   ```javascript
-                  function humain () {}
-                  humain.prototype.manger = function () {
+                  function Humain () {}
+                  Humain.prototype.manger = function () {
                       return "Miam";
                   }
 
-                  function etudiant(){}
+                  function Etudiant(){}
 
-                  etudiant.prototype = humain.prototype; 
-                  etudiant.prototype.stage = true;
+                  Etudiant.prototype = Humain.prototype; 
+                  Etudiant.prototype.stage = true;
 
-                  var chloe = new etudiant(); 
-                  console.log(choe.manger()); // Miam
-                  console.log(choe.stage); // true
+                  var chloe = new Etudiant(); 
+                  console.log(chloe.manger()); // Miam
+                  console.log(chloe.stage); // true
                   ```
 
 
