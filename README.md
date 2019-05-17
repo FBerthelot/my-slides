@@ -2,9 +2,9 @@
 
 > Personal web site of Florent Berthelot
 
-[![Build Status](https://travis-ci.org/FBerthelot/my-slides.svg?branch=master)](https://travis-ci.org/FBerthelot/my-slides)
-[![Dependency Status](https://david-dm.org/FBerthelot/tribu-web-prez.svg)](https://david-dm.org/FBerthelot/tribu-web-prez)
-[![devDependency Status](https://david-dm.org/FBerthelot/tribu-web-prez/dev-status.svg)](https://david-dm.org/FBerthelot/tribu-web-prez#info=devDependencies)
+[![Build Status](https://travis-ci.org/FBerthelot/berthelot.io.svg?branch=master)](https://travis-ci.org/FBerthelot/my-slides)
+[![Dependency Status](https://david-dm.org/FBerthelot/berthelot.io.svg)](https://david-dm.org/FBerthelot/berthelot.io)
+[![devDependency Status](https://david-dm.org/FBerthelot/berthelot.io/dev-status.svg)](https://david-dm.org/FBerthelot/berthelot.io#info=devDependencies)
 [![Greenkeeper badge](https://badges.greenkeeper.io/FBerthelot/berthelot.io.svg)](https://greenkeeper.io/)
 
 ## Build Setup
