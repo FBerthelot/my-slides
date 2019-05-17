@@ -1,7 +1,7 @@
 <template>
   <div>
     <video
-      :class="{hideVideo: !videoIsRunning}"
+      :class="{ hideVideo: !videoIsRunning }"
       autoplay
       muted
       class="explosion"
