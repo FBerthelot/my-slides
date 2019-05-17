@@ -1,14 +1,21 @@
 <template>
-  <nuxt/>
+  <nuxt />
 </template>
 
 <script>
-import '~/assets/reset.css';
-import '~/assets/common.css';
+import '~assets/reset.css';
 
-export default {
-};
+export default {};
 </script>
 
 <style>
+html {
+  background-color: black;
+  color: white;
+}
+
+@font-face {
+  font-family: 'suicide-squad';
+  src: url('/fonts/suicide-squad.ttf');
+}
 </style>
