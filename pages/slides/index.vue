@@ -27,6 +27,31 @@ export default {
     return {
       slides: [
         {
+          title:
+            'React Fiber, une innovation discrète, des implications retentissantes',
+          description:
+            "L’équipe de React a fait de nombreuses annonces à propos de nouvelles APIs ces derniers temps. Voyons ce qu'elles ont dans le ventre !",
+          url:
+            'https://docs.google.com/presentation/d/1g8AvGn9tt6Qqjsfegq1TsGnUrnWdStgMehGLjFYKxIc/edit?usp=sharing',
+          external: true
+        },
+        {
+          title:
+            "React Fiber, une innovation discrète, des implications retentissantes : L'app de démo",
+          description:
+            "L’équipe de React a fait de nombreuses annonces à propos de nouvelles APIs ces derniers temps. Voyons ce qu'elles ont dans le ventre !",
+          url: 'http://pokemon.lux.frachet.berthelot.io/',
+          external: true
+        },
+        {
+          title: 'Designers, développeurs, créons la différence !',
+          description:
+            'Tous les sites se ressemblent car ils utilisent une bibliothèque de composants. Et si on utilisais le design system pour se différencier ?',
+          url:
+            'https://docs.google.com/presentation/d/1TysGKTvqLzjbnMgr5vycZsqMbTXkVJ8JpUAelNA-CC0/edit?usp=sharing',
+          external: true
+        },
+        {
           title: 'Tester des composants',
           description:
             'Comment faire des tests maintenable en TDD et même en BDD avec Angular ? La réponse dans cette présentation !',
