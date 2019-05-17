@@ -1,9 +1,6 @@
 <template>
   <svg viewBox="0 0 200 28">
-    <path
-      id="path"
-      d="m0,28 h200"
-    >
+    <path id="path" d="m0,28 h200">
       <animate
         attributeName="d"
         from="m0,28 h0"
@@ -21,11 +18,7 @@
         repeatCount="1"
       />
     </path>
-    <text
-      font-size="14"
-      y="0"
-      fill="white"
-    >
+    <text font-size="14" y="0" fill="white">
       <textPath xlink:href="#path">
         Love you miss Quinn &hearts;
       </textPath>

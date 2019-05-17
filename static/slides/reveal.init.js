@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 /* global Reveal: true */
 
 Reveal.initialize({
@@ -89,37 +89,51 @@ Reveal.initialize({
 
   dependencies: [
     // Interpret Markdown in <section> elements
-    {src: '/reveal/plugin/markdown/marked.js', condition() {
-      return Boolean(document.querySelector('[data-markdown]'));
-    }},
-    {src: '/reveal/plugin/markdown/markdown.js', condition() {
-      return Boolean(document.querySelector('[data-markdown]'));
-    }},
+    {
+      src: '/reveal/plugin/markdown/marked.js',
+      condition() {
+        return Boolean(document.querySelector('[data-markdown]'))
+      }
+    },
+    {
+      src: '/reveal/plugin/markdown/markdown.js',
+      condition() {
+        return Boolean(document.querySelector('[data-markdown]'))
+      }
+    },
 
     // Syntax highlight for <code> elements
-    {src: '/reveal/plugin/highlight/highlight.js', async: true, callback() {
-      hljs.initHighlightingOnLoad(); // eslint-disable-line
-    }},
+    {
+      src: '/reveal/plugin/highlight/highlight.js',
+      async: true,
+      callback() {
+        hljs.initHighlightingOnLoad() // eslint-disable-line
+      }
+    },
 
     // Zoom in and out with Alt+click
-    {src: '/reveal/plugin/zoom-js/zoom.js', async: true},
+    { src: '/reveal/plugin/zoom-js/zoom.js', async: true },
 
     // Speaker notes
-    {src: '/reveal/plugin/notes/notes.js', async: true},
+    { src: '/reveal/plugin/notes/notes.js', async: true },
 
     // MathJax
-    {src: 'n/reveal/plugin/math/math.js', async: true}
+    { src: '/reveal/plugin/math/math.js', async: true }
   ]
-});
+})
 
 Reveal.addEventListener('slidechanged', event => {
-  window.location.hash = `${event.indexh}/${event.indexv}`;
-});
+  setTimeout(
+    () => (window.location.hash = `/${event.indexh}/${event.indexv}`),
+    0
+  )
+})
 
 Reveal.addEventListener('ready', () => {
-  const indexh = window.location.hash && window.location.hash.split('/')[0].replace('#', '');
-  const indexv = window.location.hash && window.location.hash.split('/')[1];
+  const indexh =
+    window.location.hash && window.location.hash.split('/')[0].replace('#', '')
+  const indexv = window.location.hash && window.location.hash.split('/')[1]
   if (indexh && indexv) {
-    Reveal.slide(indexh, indexv);
+    Reveal.slide(indexh, indexv)
   }
-});
+})
