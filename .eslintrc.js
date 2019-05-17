@@ -8,15 +8,13 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    'xo-space/esnext',
-    'plugin:vue/recommended'
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/vue'
   ],
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
+  plugins: ['prettier'],
   // add your custom rules here
-  rules: {
-    'prefer-destructuring': [0]
-  }
+  rules: {}
 }

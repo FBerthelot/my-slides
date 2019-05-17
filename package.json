@@ -1,7 +1,7 @@
 {
   "name": "berthelot.io",
   "version": "1.0.0",
-  "description": "Personal web site of Florent Berthelot ",
+  "description": "Personal web site of Florent Berthelot, a french web developer.",
   "author": "FBerthelot <florent@berthelot.io>",
   "license": "SEE LICENSE IN LICENSE.md FILE",
   "private": true,
@@ -9,27 +9,34 @@
     "reveal": "rimraf static/reveal/ && cpr node_modules/reveal.js/ static/reveal/",
     "dev": "npm run reveal && nuxt",
     "build": "npm run reveal && nuxt build",
-    "start": "npm run reveal && nuxt start",
-    "generate": "npm run reveal && nuxt generate",
-    "lint": "eslint --ext .js,.vue ."
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
-    "animejs": "^3.0.1",
-    "nuxt": "^2.7.1",
+    "cpr": "^3.0.1",
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0",
     "reveal.js": "^3.8.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FBerthelot/tribu-web-prez"
-  },
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^0.0.1",
     "babel-eslint": "^10.0.1",
-    "cpr": "^3.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-xo-space": "^0.21.0",
-    "eslint-friendly-formatter": "^4.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": ">=12.0.0",
     "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-jest": ">=22.3.0",
+    "eslint-plugin-node": ">=8.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.16.4",
     "rimraf": "^2.6.3"
   }
 }

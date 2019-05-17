@@ -1,45 +1,36 @@
 <template>
   <div>
     <video
-      :class="{hideVideo: !videoIsRunning}"
+      :class="{ hideVideo: !videoIsRunning }"
       autoplay
       muted
       class="explosion"
       @ended="explosionEnd()"
     >
-      <source
-        src="/assets/explosion.mp4"
-        type="video/mp4"
-      >
+      <source src="/assets/explosion.mp4" type="video/mp4" />
     </video>
 
     <div class="joker-container">
       <img
-        :class="{jokerAnimation: !videoIsRunning}"
+        :class="{ jokerAnimation: !videoIsRunning }"
         src="/assets/joker-2.jpg"
         alt="joker"
         class="joker"
-      >
+      />
     </div>
 
     <main>
-      <loveu
-        v-if="!videoIsRunning"
-        class="loveu"
-      />
+      <loveu v-if="!videoIsRunning" class="loveu" />
 
-      <h1
-        :class="{titleAnimation: !videoIsRunning}"
-        class="title"
-      >
+      <h1 :class="{ titleAnimation: !videoIsRunning }" class="title">
         Florent Berthelot
       </h1>
 
       <nav>
-        <ul :class="{launchGrenade: !videoIsRunning}">
+        <ul :class="{ launchGrenade: !videoIsRunning }">
           <li>
             <a
-              :class="{twitterLaunch: !videoIsRunning}"
+              :class="{ twitterLaunch: !videoIsRunning }"
               href="https://twitter.com/berthel350"
             >
               twitter
@@ -47,7 +38,7 @@
           </li>
           <li>
             <a
-              :class="{linkedinLaunch: !videoIsRunning}"
+              :class="{ linkedinLaunch: !videoIsRunning }"
               href="https://www.linkedin.com/in/florent-berthelot-a2678861/"
             >
               Linkedin
@@ -55,23 +46,20 @@
           </li>
           <li>
             <a
-              :class="{githubLaunch: !videoIsRunning}"
+              :class="{ githubLaunch: !videoIsRunning }"
               href="https://github.com/FBerthelot"
             >
               Github
             </a>
           </li>
           <li>
-            <nuxt-link
-              :class="{slidesLaunch: !videoIsRunning}"
-              to="/slides"
-            >
+            <nuxt-link :class="{ slidesLaunch: !videoIsRunning }" to="/slides">
               Slides
             </nuxt-link>
           </li>
           <li>
             <a
-              :class="{mailLaunch: !videoIsRunning}"
+              :class="{ mailLaunch: !videoIsRunning }"
               href="mailto:florent@berthelot.io"
             >
               Mail
@@ -84,7 +72,7 @@
 </template>
 
 <script>
-import loveu from '~/components/loveu';
+import loveu from '~/components/loveu'
 
 export default {
   components: {
@@ -93,11 +81,11 @@ export default {
   data() {
     return {
       videoIsRunning: true
-    };
+    }
   },
   methods: {
     explosionEnd() {
-      this.videoIsRunning = false;
+      this.videoIsRunning = false
     }
   },
   head() {
@@ -107,12 +95,12 @@ export default {
         {
           hid: 'description',
           name:
-            'Site perso d\'un passionné de web. Si tu clique sur ce lien, tu vas avoir une surprise !'
+            "Site perso d'un passionné de web. Si tu clique sur ce lien, tu vas avoir une surprise !"
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
