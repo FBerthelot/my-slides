@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "animejs": "^3.0.1",
-    "nuxt": "^2.6.3",
-    "reveal.js": "^3.7.0"
+    "nuxt": "^2.7.1",
+    "reveal.js": "^3.8.0"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "cpr": "^3.0.1",
-    "eslint": "^5.5.0",
+    "eslint": "^5.16.0",
     "eslint-config-xo-space": "^0.21.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",

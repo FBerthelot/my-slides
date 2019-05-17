@@ -89,26 +89,26 @@ Reveal.initialize({
 
   dependencies: [
     // Interpret Markdown in <section> elements
-    {src: `/reveal/plugin/markdown/marked.js`, condition() {
+    {src: '/reveal/plugin/markdown/marked.js', condition() {
       return Boolean(document.querySelector('[data-markdown]'));
     }},
-    {src: `/reveal/plugin/markdown/markdown.js`, condition() {
+    {src: '/reveal/plugin/markdown/markdown.js', condition() {
       return Boolean(document.querySelector('[data-markdown]'));
     }},
 
     // Syntax highlight for <code> elements
-    {src: `/reveal/plugin/highlight/highlight.js`, async: true, callback() {
+    {src: '/reveal/plugin/highlight/highlight.js', async: true, callback() {
       hljs.initHighlightingOnLoad(); // eslint-disable-line
     }},
 
     // Zoom in and out with Alt+click
-    {src: `/reveal/plugin/zoom-js/zoom.js`, async: true},
+    {src: '/reveal/plugin/zoom-js/zoom.js', async: true},
 
     // Speaker notes
-    {src: `/reveal/plugin/notes/notes.js`, async: true},
+    {src: '/reveal/plugin/notes/notes.js', async: true},
 
     // MathJax
-    {src: `/reveal/plugin/math/math.js`, async: true}
+    {src: 'n/reveal/plugin/math/math.js', async: true}
   ]
 });
 
