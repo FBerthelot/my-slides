@@ -33,7 +33,7 @@
               :class="{ twitterLaunch: !videoIsRunning }"
               href="https://twitter.com/berthel350"
             >
-              twitter
+              Twitter
             </a>
           </li>
           <li>
