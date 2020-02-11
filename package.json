@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "cpr": "^3.0.1",
-    "cross-env": "^6.0.0",
+    "cross-env": "^7.0.0",
     "nuxt": "^2.8.1",
     "reveal.js": "^3.8.0"
   },
