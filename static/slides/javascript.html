@@ -661,6 +661,27 @@
 
 
               <!-- .slide: data-background="#00a6ff" -->
+              ## Classes - getter, setter
+
+              ```javascript
+              class Charmed {
+                get sisters() { return this._sisters; }
+                set sisters(array) {
+                  if(array.length > 3) {
+                    throw new Error('there is only 3 sisters');
+                  }
+                  this._sisters = sisters;
+                }
+              }
+
+              const charmed = new Charmed();
+              charmed.sisters = ['proue', 'fitbit', 'poivre'];
+              console.log(charmed.sisters);
+              charmed.sisters = ['', '', '', '']; // KO
+              ```
+
+
+              <!-- .slide: data-background="#00a6ff" -->
               ## Promises
 
               ```javascript
