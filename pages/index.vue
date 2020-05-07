@@ -1,69 +1,120 @@
 <template>
-  <div>
+  <div
+    class="container"
+    :class="{ 'container__explision-ended': !videoIsRunning }"
+  >
     <video
-      :class="{ hideVideo: !videoIsRunning }"
       autoplay
       muted
       class="explosion"
+      :class="{ explosion__hidden: !videoIsRunning }"
       @ended="explosionEnd()"
     >
       <source src="/assets/explosion.mp4" type="video/mp4" />
     </video>
 
-    <div class="joker-container">
-      <img
-        :class="{ jokerAnimation: !videoIsRunning }"
-        src="/assets/joker-2.jpg"
-        alt="joker"
-        class="joker"
-      />
-    </div>
+    <header class="header">
+      <div class="header--1-level">
+        <nuxt-link to="/love"><Logo :face="0" /></nuxt-link>
+        <Typography component="h1" variant="title">
+          Florent Berthelot
+        </Typography>
+        <nuxt-link to="/love"><Logo :face="1" /></nuxt-link>
+      </div>
 
-    <main>
-      <loveu v-if="!videoIsRunning" class="loveu" />
+      <Typography class="header--tagline" component="h2" variant="title--small">
+        <!--Design system and well-tested programs evangelist-->
+        Prêcheur des Design System et des programmes bien testés
+      </Typography>
+    </header>
 
-      <h1 :class="{ titleAnimation: !videoIsRunning }" class="title">
-        Florent Berthelot
-      </h1>
-
-      <nav>
-        <ul :class="{ launchGrenade: !videoIsRunning }">
+    <main
+      :class="{ 'main-content__visible': !videoIsRunning }"
+      class="main-content"
+    >
+      <div class="main-content--mid-section">
+        <ul class="social-network social-network__left">
           <li>
-            <a
-              :class="{ twitterLaunch: !videoIsRunning }"
+            <Typography
+              component="a"
+              target="_blank"
               href="https://twitter.com/berthel350"
             >
               Twitter
-            </a>
+            </Typography>
           </li>
           <li>
-            <a
-              :class="{ linkedinLaunch: !videoIsRunning }"
+            <Typography
+              component="a"
+              target="_blank"
               href="https://www.linkedin.com/in/florent-berthelot-a2678861/"
             >
               Linkedin
-            </a>
+            </Typography>
           </li>
+        </ul>
+
+        <Typography class="presentation">
+          Je suis passionné du Web et des technologies qui gravitent autour.
+          J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG,
+          les frameworks JS (React, Vue.js, Node.js, Angular, ...) et la
+          vanille.
+          <br /><br />
+          Transmettre ma passion pour l'artisanat web occupe une part importante
+          de mon travail de développeur (meetups, formations, conférences,
+          encadrement de stagiaires).
+          <br /><br />
+          Vive le web, Vive le JS et Vive l'artisanat!
+        </Typography>
+
+        <ul class="social-network social-network__right">
           <li>
-            <a
-              :class="{ githubLaunch: !videoIsRunning }"
+            <Typography
+              component="a"
+              target="_blank"
               href="https://github.com/FBerthelot"
             >
               Github
-            </a>
+            </Typography>
           </li>
+
           <li>
-            <nuxt-link :class="{ slidesLaunch: !videoIsRunning }" to="/slides">
-              Slides
+            <Typography component="a" href="mailto:florent@berthelot.io">
+              Mail
+            </Typography>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="main-links" v-if="!videoIsRunning">
+        <ul>
+          <li>
+            <nuxt-link to="/subjects/articles">
+              <GrenadeButton :throwIn="400" component="div">
+                Articles
+              </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
-            <a
-              :class="{ mailLaunch: !videoIsRunning }"
-              href="mailto:florent@berthelot.io"
-            >
-              Mail
-            </a>
+            <nuxt-link to="/subjects/courses">
+              <GrenadeButton :throwIn="600" component="div">
+                Cours
+              </GrenadeButton>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/subjects/talks">
+              <GrenadeButton :throwIn="1400" component="div">
+                Talks
+              </GrenadeButton>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/subjects/projects">
+              <GrenadeButton :throwIn="1000" component="div">
+                Projets
+              </GrenadeButton>
+            </nuxt-link>
           </li>
         </ul>
       </nav>
@@ -72,38 +123,43 @@
 </template>
 
 <script>
-import loveu from '~/components/loveu'
+import { GrenadeButton } from '~/components/button'
+import { Logo } from '~/components/logo'
+import { Typography } from '~/components/typography'
 
 export default {
   components: {
-    loveu
+    GrenadeButton,
+    Typography,
+    Logo,
   },
   data() {
     return {
-      videoIsRunning: true
+      videoIsRunning: true,
     }
   },
   methods: {
     explosionEnd() {
       this.videoIsRunning = false
-    }
+    },
   },
   head() {
     return {
       title: 'Florent Berthelot - Dévelopeur et formateur Web',
-      meta: [
-        {
-          hid: 'description',
-          name:
-            "Site perso d'un passionné de web. Si tu clique sur ce lien, tu vas avoir une surprise !"
-        }
-      ]
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
+.container {
+  height: 100%;
+  background-color: black;
+  transition: background 2s ease;
+}
+.container__explision-ended {
+  background-color: var(--color-black);
+}
 .explosion {
   position: fixed;
   right: 0;
@@ -112,38 +168,122 @@ export default {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
 }
-.hideVideo {
+.explosion__hidden {
   display: none;
 }
 
-.loveu {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  width: 10vw;
+.header {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-
-.joker-container {
+.header--1-level {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
+  justify-content: space-between;
+  width: 60%;
+  margin: 1rem 20%;
+  opacity: 0;
+  transform: scale(0);
+  animation: headerAppear 3s linear 1s 1 forwards;
 }
-.joker {
-  margin-top: -20vh;
-  max-height: 50%;
-  max-width: 100%;
+
+.header--tagline {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0);
+  animation: taglineAppear 3s linear 3s 1 forwards;
+}
+
+.main-content {
+  height: 70%;
+}
+
+.main-content--mid-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+}
+.presentation {
+  width: 40%;
+  border: 2px solid var(--color-dark);
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  transition: all 3s ease;
   opacity: 0;
 }
-.jokerAnimation {
-  animation: jokerapear 0.9s ease 2s 1 forwards;
+.main-content__visible .presentation {
+  opacity: 1;
 }
-@keyframes jokerapear {
+
+.social-network li {
+  display: flex;
+  margin: 1.5rem 0;
+}
+.social-network li a {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  display: block;
+  border: 1px solid var(--color-dark);
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.6s ease;
+}
+.main-content__visible .social-network li a:hover {
+  border: 1px solid var(--color-light);
+  transform: scale(1.3);
+  box-shadow: 0 0 2rem var(--color-light);
+}
+
+.social-network__left li a {
+  box-shadow: 0.25rem 0 0.25rem var(--color-dark);
+  border-left: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transform-origin: center left;
+  transform: translateX(-105%);
+}
+.main-content__visible .social-network__left li a:hover {
+  border-left: none;
+}
+
+.social-network__right li a {
+  box-shadow: -0.25rem 0 0.25rem var(--color-dark);
+  border-right: none;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  transform-origin: center right;
+  transform: translateX(105%);
+}
+.main-content__visible .social-network__right li a:hover {
+  border-right: none;
+}
+.main-content__visible .social-network li a {
+  transform: translate(0);
+}
+
+.main-links {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.main-links ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-links ul a {
+  text-decoration: none;
+}
+
+@keyframes headerAppear {
   from {
     opacity: 0;
     transform: scale(0);
@@ -154,195 +294,14 @@ export default {
   }
 }
 
-.title {
-  text-align: center;
-  margin-top: 70vh;
-  opacity: 0;
-  color: #550a55;
-  font-family: suicide-squad;
-}
-.titleAnimation {
-  animation: titleapear 1s ease 2.9s 1 forwards;
-}
-@keyframes titleapear {
+@keyframes taglineAppear {
   from {
     opacity: 0;
-    font-size: 1rem;
+    transform: scale(0);
   }
   to {
+    transform: scale(1);
     opacity: 1;
-    font-size: 3.5rem;
-  }
-}
-
-nav {
-  position: absolute;
-  bottom: 10vh;
-  width: 100vw;
-}
-nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-nav ul a {
-  display: block;
-  color: #0d6c0d;
-  border: 1px solid #0d6c0d;
-  line-height: 45px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  opacity: 0;
-
-  position: relative;
-  border-radius: 50%;
-  width: 40px;
-  height: 45px;
-  background-color: #0d6c0d;
-  color: transparent;
-}
-
-nav ul a::before {
-  display: block;
-  content: '';
-  position: absolute;
-  left: -12px;
-  width: 5px;
-  height: 30px;
-  transform: rotateZ(20deg);
-  background-image: linear-gradient(to bottom, #444 30%, #ccc 30%);
-  transition: all 1s ease;
-}
-nav ul a::after {
-  display: block;
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: -10px;
-  width: 35px;
-  height: 10px;
-  background-image: linear-gradient(to left, #444 50%, #444 50%);
-}
-
-nav ul a::after {
-  animation: explodeY 0.5s ease 6s 1 forwards;
-}
-nav ul a::before {
-  animation: explodeX 0.5s ease 6s 1 forwards;
-}
-
-@keyframes explodeY {
-  to {
-    transform: translate3d(0, -300vw, 0);
-  }
-}
-@keyframes explodeX {
-  to {
-    transform: translate3d(-300vw, -25vh, 0);
-  }
-}
-
-main nav ul a:hover {
-  background-color: #550a55;
-  color: white;
-  border-color: #550a55;
-  transform: scale(1.5);
-}
-
-nav ul .twitterLaunch {
-  animation: bounceInDown 2s ease 0.2s 1 forwards,
-    deployButton 0.6s ease 2.2s 1 forwards;
-}
-nav ul .linkedinLaunch {
-  animation: bounceInDown 2s ease 1 forwards,
-    deployButton 0.6s ease 2s 1 forwards;
-}
-nav ul .githubLaunch {
-  animation: bounceInDown 2s ease 0.7s 1 forwards,
-    deployButton 0.6s ease 2.7s 1 forwards;
-}
-nav ul .slidesLaunch {
-  animation: bounceInDown 2s ease 0.3s 1 forwards,
-    deployButton 0.6s ease 2.3s 1 forwards;
-}
-
-nav ul .mailLaunch {
-  animation: bounceInDown 2s ease 0.5s 1 forwards,
-    deployButton 0.6s ease 2.5s 1 forwards;
-}
-
-@keyframes bounceInDown {
-  from,
-  60%,
-  75%,
-  90%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -3000px, 0);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    transform: translate3d(0, 5px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes deployButton {
-  to {
-    background-color: transparent;
-    color: #0d6c0d;
-    border-radius: 10px;
-    width: 15vh;
-  }
-}
-
-@media (max-width: 600px) {
-  .loveu {
-    width: 35vw;
-  }
-  .joker {
-    margin-top: -40vh;
-  }
-  .title {
-    margin-top: 50vh;
-  }
-  @keyframes titleapear {
-    from {
-      opacity: 0;
-      font-size: 1rem;
-    }
-    to {
-      opacity: 1;
-      font-size: 2rem;
-    }
-  }
-  nav {
-    bottom: 15px;
-  }
-  nav ul {
-    flex-direction: column;
-  }
-  nav ul li {
-    margin-bottom: 5px;
   }
 }
 </style>

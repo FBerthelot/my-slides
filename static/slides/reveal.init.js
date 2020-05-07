@@ -93,13 +93,13 @@ Reveal.initialize({
       src: '/reveal/plugin/markdown/marked.js',
       condition() {
         return Boolean(document.querySelector('[data-markdown]'))
-      }
+      },
     },
     {
       src: '/reveal/plugin/markdown/markdown.js',
       condition() {
         return Boolean(document.querySelector('[data-markdown]'))
-      }
+      },
     },
 
     // Syntax highlight for <code> elements
@@ -108,7 +108,7 @@ Reveal.initialize({
       async: true,
       callback() {
         hljs.initHighlightingOnLoad() // eslint-disable-line
-      }
+      },
     },
 
     // Zoom in and out with Alt+click
@@ -118,11 +118,11 @@ Reveal.initialize({
     { src: '/reveal/plugin/notes/notes.js', async: true },
 
     // MathJax
-    { src: '/reveal/plugin/math/math.js', async: true }
-  ]
+    { src: '/reveal/plugin/math/math.js', async: true },
+  ],
 })
 
-Reveal.addEventListener('slidechanged', event => {
+Reveal.addEventListener('slidechanged', (event) => {
   setTimeout(
     () => (window.location.hash = `/${event.indexh}/${event.indexv}`),
     0
