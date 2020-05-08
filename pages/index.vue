@@ -38,6 +38,7 @@
             <Typography
               component="a"
               target="_blank"
+              rel="noopener"
               href="https://twitter.com/berthel350"
             >
               Twitter
@@ -47,6 +48,7 @@
             <Typography
               component="a"
               target="_blank"
+              rel="noopener"
               href="https://www.linkedin.com/in/florent-berthelot-a2678861/"
             >
               Linkedin
@@ -54,24 +56,27 @@
           </li>
         </ul>
 
-        <Typography class="presentation">
-          Je suis passionné du Web et des technologies qui gravitent autour.
-          J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG,
-          les frameworks JS (React, Vue.js, Node.js, Angular, ...) et la
-          vanille.
-          <br /><br />
-          Transmettre ma passion pour l'artisanat web occupe une part importante
-          de mon travail de développeur (meetups, formations, conférences,
-          encadrement de stagiaires).
-          <br /><br />
-          Vive le web, Vive le JS et Vive l'artisanat!
-        </Typography>
+        <Card class="presentation">
+          <Typography>
+            Je suis passionné du Web et des technologies qui gravitent autour.
+            J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le
+            WhatWG, les frameworks JS (React, Vue.js, Node.js, Angular, ...) et
+            la vanille.
+            <br /><br />
+            Transmettre ma passion pour l'artisanat web occupe une part
+            importante de mon travail de développeur (meetups, formations,
+            conférences, encadrement de stagiaires).
+            <br /><br />
+            Vive le web, Vive le JS et Vive l'artisanat!
+          </Typography>
+        </Card>
 
         <ul class="social-network social-network__right">
           <li>
             <Typography
               component="a"
               target="_blank"
+              rel="noopener"
               href="https://github.com/FBerthelot"
             >
               Github
@@ -111,7 +116,7 @@
           </li>
           <li>
             <nuxt-link to="/subjects/projects">
-              <GrenadeButton :throwIn="1000" component="div">
+              <GrenadeButton component="div" :throwIn="1000">
                 Projets
               </GrenadeButton>
             </nuxt-link>
@@ -125,6 +130,7 @@
 <script>
 import { GrenadeButton } from '~/components/button'
 import { Logo } from '~/components/logo'
+import { Card } from '~/components/card'
 import { Typography } from '~/components/typography'
 
 export default {
@@ -132,6 +138,7 @@ export default {
     GrenadeButton,
     Typography,
     Logo,
+    Card,
   },
   data() {
     return {
@@ -145,7 +152,16 @@ export default {
   },
   head() {
     return {
-      title: 'Florent Berthelot - Dévelopeur et formateur Web',
+      title:
+        'Florent Berthelot - Prêcheur des Design System et des programmes bien testés',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
+        },
+      ],
     }
   },
 }
@@ -209,9 +225,6 @@ export default {
 }
 .presentation {
   width: 40%;
-  border: 2px solid var(--color-dark);
-  border-radius: 1rem;
-  padding: 2rem 1rem;
   transition: all 3s ease;
   opacity: 0;
 }
@@ -233,10 +246,12 @@ export default {
   text-decoration: none;
   transition: all 0.6s ease;
 }
-.main-content__visible .social-network li a:hover {
+.main-content__visible .social-network li a:hover,
+.main-content__visible .social-network li a:focus {
   border: 1px solid var(--color-light);
   transform: scale(1.3);
   box-shadow: 0 0 2rem var(--color-light);
+  outline: none;
 }
 
 .social-network__left li a {
@@ -247,7 +262,8 @@ export default {
   transform-origin: center left;
   transform: translateX(-105%);
 }
-.main-content__visible .social-network__left li a:hover {
+.main-content__visible .social-network__left li a:hover,
+.main-content__visible .social-network__left li a:focus {
   border-left: none;
 }
 
@@ -259,7 +275,8 @@ export default {
   transform-origin: center right;
   transform: translateX(105%);
 }
-.main-content__visible .social-network__right li a:hover {
+.main-content__visible .social-network__right li a:hover,
+.main-content__visible .social-network__right li a:focus {
   border-right: none;
 }
 .main-content__visible .social-network li a {
@@ -281,6 +298,9 @@ export default {
 }
 .main-links ul a {
   text-decoration: none;
+}
+.main-links ul a:focus {
+  outline: none;
 }
 
 @keyframes headerAppear {

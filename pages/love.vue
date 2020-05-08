@@ -3,7 +3,14 @@
     <h1 class="title"><LoveU class="loveu" /></h1>
 
     <div class="img-container">
-      <img src="/assets/quinn-draw.jpg" alt="Draw of Miss Quinn on a ball" />
+      <a
+        href="https://www.linkedin.com/in/agn%C3%A8s-vall%C3%A9e-856888105/"
+        target="_blank"
+        rel="noreferrer"
+        tabindex="0"
+      >
+        <img src="/assets/quinn-draw.jpg" alt="Draw of Miss Quinn on a ball" />
+      </a>
       <img src="/assets/joker-draw.jpg" alt="Draw of Joker with flowers" />
     </div>
   </main>
@@ -14,6 +21,19 @@ import LoveU from '~/components/loveu.vue'
 export default {
   components: {
     LoveU,
+  },
+  head() {
+    return {
+      title: "Florent Berthelot - Ma pacsé, je l'aime!",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Sur cette page, vous trouverez des dessins de ma bien aimée',
+        },
+      ],
+    }
   },
 }
 </script>
@@ -43,8 +63,19 @@ export default {
   box-sizing: border-box;
 }
 
-.img-container img {
+.img-container a {
+  display: block;
   max-width: 48%;
-  max-height: 100%;
+  height: 100%;
+}
+
+.img-container a img {
+  max-width: 100%;
+}
+
+.img-container img {
+  width: auto;
+  max-width: 48%;
+  height: 100%;
 }
 </style>

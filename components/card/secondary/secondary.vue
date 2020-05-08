@@ -3,6 +3,7 @@
     <div
       class="alternatives"
       v-bind:class="{ 'alternatives--displayed': displayAlternatives }"
+      :aria-hidden="!displayAlternatives"
     >
       <slot></slot>
     </div>

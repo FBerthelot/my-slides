@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <nuxt-link class="header__logo" :to="backLink" aria-label="Back to home"
-      ><Logo
-    /></nuxt-link>
+    <div class="header__logo">
+      <nuxt-link :to="backLink" aria-label="Back to home"><Logo /></nuxt-link>
+    </div>
 
     <Typography variant="header__title" component="h1" class="title">
       {{ title }}
@@ -10,7 +10,10 @@
 
     <div class="header__actions">
       <div class="tabs">
-        <nuxt-link to="/subjects/articles">
+        <nuxt-link
+          to="/subjects/articles"
+          :tabindex="$route.path === '/subjects/articles' ? -1 : 0"
+        >
           <Typography
             class="tab"
             :class="{ active: $route.path.startsWith('/subjects/articles') }"
@@ -19,7 +22,10 @@
             Articles
           </Typography>
         </nuxt-link>
-        <nuxt-link to="/subjects/courses">
+        <nuxt-link
+          to="/subjects/courses"
+          :tabindex="$route.path === '/subjects/courses' ? -1 : 0"
+        >
           <Typography
             class="tab"
             :class="{ active: $route.path === '/subjects/courses' }"
@@ -28,7 +34,10 @@
             Cours
           </Typography>
         </nuxt-link>
-        <nuxt-link to="/subjects/talks">
+        <nuxt-link
+          to="/subjects/talks"
+          :tabindex="$route.path === '/subjects/talks' ? -1 : 0"
+        >
           <Typography
             class="tab"
             :class="{ active: $route.path === '/subjects/talks' }"
@@ -37,7 +46,10 @@
             Talks
           </Typography>
         </nuxt-link>
-        <nuxt-link to="/subjects/projects">
+        <nuxt-link
+          to="/subjects/projects"
+          :tabindex="$route.path === '/subjects/projects' ? -1 : 0"
+        >
           <Typography
             class="tab"
             :class="{ active: $route.path === '/subjects/projects' }"
@@ -136,11 +148,15 @@ export default {
   background-color: var(--color-black);
 }
 
-.tabs .tab:hover:not(.active) {
+.tabs :hover .tab:not(.active),
+.tabs :focus .tab:not(.active) {
   border: 1px solid var(--color-light);
   border-bottom: 1px solid var(--color-black);
   transform: scale(1.3);
   box-shadow: 0 0rem 2rem var(--color-light);
+}
+.tabs a:focus {
+  outline: none;
 }
 
 .tabs .tab.active {

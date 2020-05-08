@@ -4,6 +4,7 @@
       v-if="link && !internalLink"
       class="card__container card__container--link"
       target="_blank"
+      rel="noopener"
       :href="link"
     >
       <slot />
@@ -60,8 +61,10 @@ export default {
   transition: all 0.5s ease-out;
 }
 
-.card__container--link:hover {
+.card__container--link:hover,
+.card__container--link:focus {
   box-shadow: 0 0 2rem var(--color-light);
+  outline: none;
 }
 
 .card__container--link:active {

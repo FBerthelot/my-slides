@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 152 28">
+  <svg viewBox="0 0 160 32">
     <path id="path" d="m0,28 h152">
       <animate
         attributeName="d"

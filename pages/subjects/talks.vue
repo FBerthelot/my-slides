@@ -3,12 +3,16 @@
     <Header title="Sujets de conférences" />
 
     <main class="subjects">
-      <Card v-for="subject in subjects" class="subject" key="subject.name">
+      <Card v-for="subject in subjects" class="subject" :key="subject.name">
         <CardTitle>{{ subject.name }}</CardTitle>
         <Typography><span v-html="subject.description"></span></Typography>
         <CardMeta>{{ subject.metaData }}</CardMeta>
 
-        <CardVideo v-if="subject.video" :video="subject.video" />
+        <CardVideo
+          v-if="subject.video"
+          :video="subject.video"
+          title="video of the talk"
+        />
 
         <CardLink :href="subject.slides">Lien vers les slides</CardLink>
 
@@ -20,7 +24,7 @@
             <Typography
               component="li"
               v-for="alternative in subject.alternatives"
-              key="alternative.name"
+              :key="alternative.name"
             >
               {{ alternative.name }}:
               <Typography
@@ -81,13 +85,12 @@ export default {
   },
   head() {
     return {
-      title:
-        'Mes slides et vidéos - Florent Berthelot - Dévelopeur et formateur Web',
+      title: 'Florent Berthelot - Sujets de conférences',
       meta: [
         {
           hid: 'description',
-          name:
-            'Un regroupement de liens vers mes slides de présentation et mes vidéos en conférence.',
+          name: 'description',
+          content: "Liste des conférences que j'ai eu la chance de donner.",
         },
       ],
     }

@@ -2,20 +2,32 @@
   <footer class="footer">
     <ul class="social-network">
       <li>
-        <Typography component="a" href="https://twitter.com/berthel350">
+        <Typography
+          component="a"
+          rel="noopener"
+          target="_blank"
+          href="https://twitter.com/berthel350"
+        >
           Twitter
         </Typography>
       </li>
       <li>
         <Typography
           component="a"
+          rel="noopener"
+          target="_blank"
           href="https://www.linkedin.com/in/florent-berthelot-a2678861/"
         >
           Linkedin
         </Typography>
       </li>
       <li>
-        <Typography component="a" href="https://github.com/FBerthelot">
+        <Typography
+          component="a"
+          rel="noopener"
+          target="_blank"
+          href="https://github.com/FBerthelot"
+        >
           Github
         </Typography>
       </li>
@@ -77,10 +89,12 @@ export default {
   box-sizing: border-box;
 }
 
-.social-network a:hover {
+.social-network a:hover,
+.social-network a:focus {
   border: 1px solid var(--color-light);
   border-bottom: 1px solid var(--color-black);
   transform: scale(1.3);
   box-shadow: 0 0rem 2rem var(--color-light);
+  outline: none;
 }
 </style>

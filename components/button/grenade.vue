@@ -69,7 +69,9 @@ export default {
   text-decoration: none;
 }
 
-.grenade.grenade--throwed:hover {
+.grenade.grenade--throwed:hover,
+.grenade.grenade--throwed:focus,
+:focus > .grenade.grenade--throwed {
   border: 1px solid var(--color-light);
   box-shadow: 0 0 1rem var(--color-light);
 }

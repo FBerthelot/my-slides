@@ -35,7 +35,14 @@ export default {
   transition: all 1s;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   transform: translateY(0.2rem) scale(1.2);
+  outline: none;
+  box-shadow: 0 0 2rem var(--color-light);
+}
+
+.button:active {
+  box-shadow: 0 0 2rem var(--color-dark);
 }
 </style>

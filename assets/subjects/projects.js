@@ -20,7 +20,7 @@ export default [
     name: `Coach'A`,
     metaInfo: 'En construction',
     description: `
-    Application de sport qui s'adapte un maximum aux utilisateurs et à leurs environnement.
+    Application de sport qui s'adapte un maximum aux utilisateurs et à leur environnement.
 `,
   },
   {

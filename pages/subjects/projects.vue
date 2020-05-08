@@ -7,7 +7,7 @@
         v-for="subject in subjects"
         class="subject"
         :link="subject.link"
-        key="subject.name"
+        :key="subject.name"
       >
         <CardTitle>{{ subject.name }}</CardTitle>
         <Typography><span v-html="subject.description"></span></Typography>
@@ -52,13 +52,13 @@ export default {
   },
   head() {
     return {
-      title:
-        'Mes slides et vidéos - Florent Berthelot - Dévelopeur et formateur Web',
+      title: 'Florent Berthelot - Projets',
       meta: [
         {
           hid: 'description',
-          name:
-            'Un regroupement de liens vers mes slides de présentation et mes vidéos en conférence.',
+          name: 'description',
+          content:
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
         },
       ],
     }

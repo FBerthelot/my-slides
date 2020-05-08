@@ -35,12 +35,12 @@ export default {
   },
   head() {
     return {
-      title: `${this.article.name} - Florent Berthelot - Dévelopeur et formateur Web`,
+      title: `Florent Berthelot - blog - ${this.article.name}`,
       meta: [
         {
           hid: 'description',
-          name:
-            'Un regroupement de liens vers mes slides de présentation et mes vidéos en conférence.',
+          name: 'description',
+          content: this.article.description.replace(/<br[/]?>/g, ''),
         },
       ],
     }

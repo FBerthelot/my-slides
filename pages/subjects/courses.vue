@@ -7,7 +7,7 @@
         v-for="subject in subjects"
         :link="subject.url"
         class="subject"
-        key="subject.name"
+        :key="subject.name"
       >
         <CardTitle>{{ subject.name }}</CardTitle>
         <Typography><span v-html="subject.description"></span></Typography>
@@ -53,13 +53,13 @@ export default {
   },
   head() {
     return {
-      title:
-        'Mes slides et vidéos - Florent Berthelot - Dévelopeur et formateur Web',
+      title: 'Florent Berthelot - Supports de formations',
       meta: [
         {
           hid: 'description',
-          name:
-            'Un regroupement de liens vers mes slides de présentation et mes vidéos en conférence.',
+          name: 'description',
+          content:
+            "Supports de cours que j'utilise pour former au développement web",
         },
       ],
     }

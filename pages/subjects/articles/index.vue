@@ -8,7 +8,7 @@
         :link="`/subjects/articles/${subject.slug}`"
         internalLink
         class="subject"
-        key="subject.name"
+        :key="subject.name"
       >
         <CardTitle>{{ subject.name }}</CardTitle>
         <Typography><span v-html="subject.description"></span></Typography>
@@ -60,12 +60,13 @@ export default {
   },
   head() {
     return {
-      title: 'Articles - Florent Berthelot - Dévelopeur et formateur Web',
+      title: "Florent Berthelot - blog d'un artisan du web",
       meta: [
         {
           hid: 'description',
-          name:
-            'Un regroupement de liens vers mes slides de présentation et mes vidéos en conférence.',
+          name: 'description',
+          content:
+            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
         },
       ],
     }
