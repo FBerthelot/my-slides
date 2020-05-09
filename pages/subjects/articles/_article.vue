@@ -59,6 +59,14 @@ export default {
   width: 50%;
   margin: 2rem 25% 2rem 25%;
 }
+
+@media screen and (max-width: 850px) {
+  .article {
+    width: 100%;
+    padding: 2rem 1rem;
+    margin: 0;
+  }
+}
 </style>
 
 <style>

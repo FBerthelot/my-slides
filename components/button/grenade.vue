@@ -118,7 +118,7 @@ export default {
 
 @keyframes explodeY {
   to {
-    transform: translate3d(0, -300vw, 0);
+    transform: translate3d(0, -300vh, 0);
   }
 }
 @keyframes explodeX {

@@ -165,4 +165,37 @@ export default {
   box-shadow: 0 0rem 1rem var(--color-light);
   cursor: default;
 }
+
+@media screen and (max-width: 850px) {
+  .header {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__actions,
+  .header__title,
+  .header__logo {
+    width: auto;
+  }
+
+  .header__title {
+    margin-bottom: 1rem;
+  }
+
+  .header__actions {
+    align-self: center;
+  }
+
+  .tabs {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .tabs .tab {
+    padding: 0.5rem;
+    margin: 0 0.5rem -1px 0.5rem;
+    width: auto;
+    font-size: 0.8rem;
+  }
+}
 </style>

@@ -15,11 +15,11 @@
 
     <header class="header">
       <div class="header--1-level">
-        <nuxt-link to="/love"><Logo :face="0" /></nuxt-link>
+        <nuxt-link to="/love" class="myPic"><Logo :face="0" /></nuxt-link>
         <Typography component="h1" variant="title">
           Florent Berthelot
         </Typography>
-        <nuxt-link to="/love"><Logo :face="1" /></nuxt-link>
+        <nuxt-link to="/love" class="avatar"><Logo :face="1" /></nuxt-link>
       </div>
 
       <Typography class="header--tagline" component="h2" variant="title--small">
@@ -203,6 +203,7 @@ export default {
   margin: 1rem 20%;
   opacity: 0;
   transform: scale(0);
+  text-align: center;
   animation: headerAppear 3s linear 1s 1 forwards;
 }
 
@@ -322,6 +323,84 @@ export default {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header--1-level {
+    width: 90%;
+    margin: 1rem 5%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .header {
+    height: auto;
+  }
+  .header--1-level {
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
+  .header--tagline {
+    margin: 0 3rem;
+    text-align: center;
+  }
+
+  .main-content {
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  .main-links {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .header--1-level {
+    flex-direction: column;
+  }
+
+  .header--1-level .avatar {
+    display: none;
+  }
+
+  .main-content--mid-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .presentation {
+    width: 90%;
+  }
+
+  .social-network__left {
+    order: 1;
+  }
+
+  .social-network__left li a {
+    border-left: 1px solid var(--color-dark);
+  }
+  .social-network__right li a {
+    border-right: 1px solid var(--color-dark);
+  }
+  .main-content__visible .social-network__right li a:hover,
+  .main-content__visible .social-network__right li a:focus {
+    border-right: 1px solid var(--color-light);
+  }
+  .main-content__visible .social-network__left li a:hover,
+  .main-content__visible .social-network__left li a:focus {
+    border-left: 1px solid var(--color-light);
+  }
+
+  .main-links ul {
+    flex-direction: column;
+  }
+
+  .main-links ul a {
+    margin: 1rem;
   }
 }
 </style>

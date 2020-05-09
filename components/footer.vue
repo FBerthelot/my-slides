@@ -97,4 +97,17 @@ export default {
   box-shadow: 0 0rem 2rem var(--color-light);
   outline: none;
 }
+
+@media screen and (max-width: 850px) {
+  .social-network {
+    justify-content: center;
+    padding: 0;
+  }
+  .social-network a {
+    padding: 0.5rem;
+    margin: 0 0.5rem -1px 0.5rem;
+    width: auto;
+    font-size: 0.8rem;
+  }
+}
 </style>

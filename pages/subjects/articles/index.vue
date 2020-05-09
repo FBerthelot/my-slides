@@ -93,4 +93,15 @@ export default {
   margin: 2rem;
   width: 55%;
 }
+
+@media screen and (max-width: 850px) {
+  .subjects {
+    padding: 1rem;
+  }
+
+  .subject {
+    margin: 1rem;
+    width: 90%;
+  }
+}
 </style>
