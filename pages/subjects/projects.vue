@@ -58,7 +58,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
         },
         {
           hid: 'twitter:title',
@@ -74,13 +74,13 @@ export default {
           hid: 'twitter:description',
           name: 'twitter:description',
           content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
         },
         {
           hid: 'og:url',

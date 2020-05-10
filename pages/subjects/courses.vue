@@ -59,7 +59,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            "Supports de cours que j'utilise pour former au développement web",
+            "Supports de cours que j'utilise pour former au développement web.",
         },
         {
           hid: 'twitter:title',
@@ -75,13 +75,13 @@ export default {
           hid: 'twitter:description',
           name: 'twitter:description',
           content:
-            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+            "Supports de cours que j'utilise pour former au développement web",
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+            "Supports de cours que j'utilise pour former au développement web",
         },
         {
           hid: 'og:url',
