@@ -9,6 +9,7 @@ export default {
   head: {
     htmlAttrs: {
       lang: 'fr',
+      prefix: 'og: http://ogp.me/ns#',
     },
     title: 'Florent Berthelot - Web developer',
     meta: [
