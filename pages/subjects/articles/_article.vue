@@ -92,7 +92,7 @@ export default {
 
 .article {
   box-sizing: border-box;
-  min-height: calc(100% - 12rem - 1px);
+  min-height: calc(100% - 14rem - 1px);
   width: 50%;
   margin: 2rem 25% 2rem 25%;
 }

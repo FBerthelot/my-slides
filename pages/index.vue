@@ -32,98 +32,54 @@
       :class="{ 'main-content__visible': !videoIsRunning }"
       class="main-content"
     >
-      <div class="main-content--mid-section">
-        <ul class="social-network social-network__left">
-          <li>
-            <Typography
-              component="a"
-              target="_blank"
-              rel="noopener"
-              href="https://twitter.com/berthel350"
-            >
-              Twitter
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              component="a"
-              target="_blank"
-              rel="noopener"
-              href="https://www.linkedin.com/in/florent-berthelot-a2678861/"
-            >
-              Linkedin
-            </Typography>
-          </li>
-        </ul>
-
-        <Card class="presentation">
-          <Typography>
-            Je suis passionné du Web et des technologies qui gravitent autour.
-            J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le
-            WhatWG, les frameworks JS (React, Vue.js, Node.js, Angular, ...) et
-            la vanille.
-            <br /><br />
-            Transmettre ma passion pour l'artisanat web occupe une part
-            importante de mon travail de développeur (meetups, formations,
-            conférences, encadrement de stagiaires).
-            <br /><br />
-            Vive le web, Vive le JS et Vive l'artisanat!
-          </Typography>
-        </Card>
-
-        <ul class="social-network social-network__right">
-          <li>
-            <Typography
-              component="a"
-              target="_blank"
-              rel="noopener"
-              href="https://github.com/FBerthelot"
-            >
-              Github
-            </Typography>
-          </li>
-
-          <li>
-            <Typography component="a" href="mailto:florent@berthelot.io">
-              Mail
-            </Typography>
-          </li>
-        </ul>
-      </div>
-
       <nav class="main-links" v-if="!videoIsRunning">
         <ul>
           <li>
             <nuxt-link to="/subjects/articles">
-              <GrenadeButton :throwIn="400" component="div">
+              <GrenadeButton component="div">
                 Articles
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link to="/subjects/courses">
-              <GrenadeButton :throwIn="600" component="div">
+              <GrenadeButton :throwIn="200" component="div">
                 Cours
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link to="/subjects/talks">
-              <GrenadeButton :throwIn="1400" component="div">
+              <GrenadeButton :throwIn="550" component="div">
                 Talks
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link to="/subjects/projects">
-              <GrenadeButton component="div" :throwIn="1000">
+              <GrenadeButton component="div" :throwIn="300">
                 Projets
               </GrenadeButton>
             </nuxt-link>
           </li>
         </ul>
       </nav>
+      <Card class="presentation">
+        <Typography>
+          Je suis passionné du Web et des technologies qui gravitent autour.
+          J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG,
+          les frameworks JS (React, Vue.js, Node.js, Angular, ...) et la
+          vanille.
+          <br /><br />
+          Transmettre ma passion pour l'artisanat web occupe une part importante
+          de mon travail de développeur (meetups, formations, conférences,
+          encadrement de stagiaires).
+          <br /><br />
+          Vive le web, Vive le JS et Vive l'artisanat!
+        </Typography>
+      </Card>
     </main>
+    <Footer class="footer" :class="{ footer__visible: !videoIsRunning }" />
   </div>
 </template>
 
@@ -131,6 +87,7 @@
 import { GrenadeButton } from '~/components/button'
 import { Logo } from '~/components/logo'
 import { Card } from '~/components/card'
+import Footer from '~/components/footer'
 import { Typography } from '~/components/typography'
 
 export default {
@@ -139,6 +96,7 @@ export default {
     Typography,
     Logo,
     Card,
+    Footer,
   },
   data() {
     return {
@@ -201,6 +159,7 @@ export default {
   height: 100%;
   background-color: black;
   transition: background 2s ease;
+  overflow-y: hidden;
 }
 .container__explision-ended {
   background-color: var(--color-black);
@@ -240,77 +199,23 @@ export default {
   text-align: center;
   opacity: 0;
   transform: scale(0);
-  animation: taglineAppear 3s linear 3s 1 forwards;
+  animation: taglineAppear 3s linear 5s 1 forwards;
 }
 
 .main-content {
-  height: 70%;
+  height: calc(70% - 5rem - 1px);
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.main-content--mid-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80%;
-}
 .presentation {
   width: 40%;
+  margin: 3rem auto;
   transition: all 3s ease;
   opacity: 0;
 }
 .main-content__visible .presentation {
   opacity: 1;
-}
-
-.social-network li {
-  display: flex;
-  margin: 1.5rem 0;
-}
-.social-network li a {
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
-  display: block;
-  border: 1px solid var(--color-dark);
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.6s ease;
-}
-.main-content__visible .social-network li a:hover,
-.main-content__visible .social-network li a:focus {
-  border: 1px solid var(--color-light);
-  transform: scale(1.3);
-  box-shadow: 0 0 2rem var(--color-light);
-  outline: none;
-}
-
-.social-network__left li a {
-  box-shadow: 0.25rem 0 0.25rem var(--color-dark);
-  border-left: none;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  transform-origin: center left;
-  transform: translateX(-105%);
-}
-.main-content__visible .social-network__left li a:hover,
-.main-content__visible .social-network__left li a:focus {
-  border-left: none;
-}
-
-.social-network__right li a {
-  box-shadow: -0.25rem 0 0.25rem var(--color-dark);
-  border-right: none;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  transform-origin: center right;
-  transform: translateX(105%);
-}
-.main-content__visible .social-network__right li a:hover,
-.main-content__visible .social-network__right li a:focus {
-  border-right: none;
-}
-.main-content__visible .social-network li a {
-  transform: translate(0);
 }
 
 .main-links {
@@ -331,6 +236,17 @@ export default {
 }
 .main-links ul a:focus {
   outline: none;
+}
+
+.footer {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 4s ease;
+}
+
+.footer__visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes headerAppear {
@@ -363,6 +279,9 @@ export default {
 }
 
 @media screen and (max-width: 850px) {
+  .container {
+    overflow-y: auto;
+  }
   .header {
     height: auto;
   }
@@ -371,7 +290,12 @@ export default {
     margin: 0;
     padding: 0.5rem 1rem;
     box-sizing: border-box;
+    flex-direction: column;
   }
+  .header--1-level .avatar {
+    display: none;
+  }
+
   .header--tagline {
     margin: 0 3rem;
     text-align: center;
@@ -381,47 +305,12 @@ export default {
     height: auto;
     margin-top: 1rem;
   }
-
-  .main-links {
-    margin-top: 1rem;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .header--1-level {
-    flex-direction: column;
-  }
-
-  .header--1-level .avatar {
-    display: none;
-  }
-
-  .main-content--mid-section {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .presentation {
     width: 90%;
   }
 
-  .social-network__left {
-    order: 1;
-  }
-
-  .social-network__left li a {
-    border-left: 1px solid var(--color-dark);
-  }
-  .social-network__right li a {
-    border-right: 1px solid var(--color-dark);
-  }
-  .main-content__visible .social-network__right li a:hover,
-  .main-content__visible .social-network__right li a:focus {
-    border-right: 1px solid var(--color-light);
-  }
-  .main-content__visible .social-network__left li a:hover,
-  .main-content__visible .social-network__left li a:focus {
-    border-left: 1px solid var(--color-light);
+  .main-links {
+    margin-top: 1rem;
   }
 
   .main-links ul {

@@ -113,7 +113,7 @@ export default {
   justify-content: space-around;
   padding: 3rem;
   box-sizing: border-box;
-  min-height: calc(100% - 12rem - 1px);
+  min-height: calc(100% - 14rem - 1px);
 }
 
 .subject {

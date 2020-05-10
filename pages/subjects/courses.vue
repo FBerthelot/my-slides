@@ -106,7 +106,7 @@ export default {
   align-items: center;
   justify-content: space-around;
   box-sizing: border-box;
-  min-height: calc(100% - 12rem - 1px);
+  min-height: calc(100% - 14rem - 1px);
 }
 
 .subject {

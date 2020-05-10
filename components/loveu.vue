@@ -12,7 +12,7 @@
     </path>
     <text font-size="16" y="-10" x="0" fill="white">
       <textPath xlink:href="#path">
-        Love you miss Quinn &hearts;
+        Love you Miss Quinn &hearts;
       </textPath>
     </text>
   </svg>
