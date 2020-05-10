@@ -14,10 +14,29 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary',
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@berthel350',
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'https://berthelot.io/assets/moi.jpg',
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'website',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
   /*
    ** Customize the progress-bar color
    */
@@ -36,7 +55,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/markdownit'],
+  modules: ['@nuxtjs/markdownit', '@nuxtjs/robots'],
 
   markdownit: {
     preset: 'default',

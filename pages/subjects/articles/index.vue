@@ -68,6 +68,33 @@ export default {
           content:
             "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: "Florent Berthelot - blog d'un artisan du web",
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: "Florent Berthelot - blog d'un artisan du web",
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/subjects/articles',
+        },
       ],
     }
   },

@@ -60,6 +60,33 @@ export default {
           content:
             'En plus de mon travail de consultant, je travail actuellement sur ces projets',
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Florent Berthelot - Projets',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Florent Berthelot - Projets',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            'En plus de mon travail de consultant, je travail actuellement sur ces projets',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/subjects/projects',
+        },
       ],
     }
   },

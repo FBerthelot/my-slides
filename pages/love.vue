@@ -32,6 +32,33 @@ export default {
           content:
             'Sur cette page, vous trouverez des dessins de ma bien aimée',
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: "Florent Berthelot - Ma pacsé, je l'aime!",
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: "Florent Berthelot - Ma pacsé, je l'aime!",
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Sur cette page, vous trouverez des dessins de ma bien aimée',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            'Sur cette page, vous trouverez des dessins de ma bien aimée',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/love',
+        },
       ],
     }
   },

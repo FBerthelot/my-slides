@@ -61,6 +61,33 @@ export default {
           content:
             "Supports de cours que j'utilise pour former au développement web",
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Florent Berthelot - Supports de formations',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Florent Berthelot - Supports de formations',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/subjects/courses',
+        },
       ],
     }
   },

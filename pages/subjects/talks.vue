@@ -92,6 +92,31 @@ export default {
           name: 'description',
           content: "Liste des conférences que j'ai eu la chance de donner.",
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Florent Berthelot - Sujets de conférences',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Florent Berthelot - Sujets de conférences',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: "Liste des conférences que j'ai eu la chance de donner.",
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: "Liste des conférences que j'ai eu la chance de donner.",
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/subjects/talks',
+        },
       ],
     }
   },

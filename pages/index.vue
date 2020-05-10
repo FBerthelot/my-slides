@@ -161,6 +161,35 @@ export default {
           content:
             'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content:
+            'Florent Berthelot - Prêcheur des Design System et des programmes bien testé',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content:
+            'Florent Berthelot - Prêcheur des Design System et des programmes bien testé',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://berthelot.io/',
+        },
       ],
     }
   },

@@ -42,6 +42,43 @@ export default {
           name: 'description',
           content: this.article.description.replace(/<br[/]?>/g, ''),
         },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.article.name,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.article.name,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.article.description.replace(/<br[/]?>/g, ''),
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.article.description.replace(/<br[/]?>/g, ''),
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: `https://berthelot.io/subjects/articles/${this.article.slug}`,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.article.image
+            ? this.article.image
+            : 'https://berthelot.io/assets/moi.jpg',
+        },
       ],
     }
   },
