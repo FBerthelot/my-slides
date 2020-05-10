@@ -99,7 +99,7 @@ export default {
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: 'Florent Berthelot - Sujets de conférences',
         },
         {
@@ -109,12 +109,12 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: "Liste des conférences que j'ai eu la chance de donner.",
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: 'https://berthelot.io/subjects/talks',
         },
       ],

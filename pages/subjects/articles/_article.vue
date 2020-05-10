@@ -49,7 +49,7 @@ export default {
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: this.article.name,
         },
         {
@@ -59,22 +59,22 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.article.description.replace(/<br[/]?>/g, ''),
         },
         {
           hid: 'og:type',
-          name: 'og:type',
+          property: 'og:type',
           content: 'article',
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: `https://berthelot.io/subjects/articles/${this.article.slug}`,
         },
         {
           hid: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.article.image
             ? this.article.image
             : 'https://berthelot.io/assets/moi.jpg',

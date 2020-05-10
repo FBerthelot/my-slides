@@ -68,7 +68,7 @@ export default {
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: 'Florent Berthelot - Supports de formations',
         },
         {
@@ -79,13 +79,13 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content:
             "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: 'https://berthelot.io/subjects/courses',
         },
       ],

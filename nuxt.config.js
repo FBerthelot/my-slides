@@ -27,12 +27,12 @@ export default {
       },
       {
         hid: 'og:image',
-        name: 'og:image',
+        property: 'og:image',
         content: 'https://berthelot.io/assets/moi.jpg',
       },
       {
         hid: 'og:type',
-        name: 'og:type',
+        property: 'og:type',
         content: 'website',
       },
     ],

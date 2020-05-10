@@ -67,7 +67,7 @@ export default {
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: 'Florent Berthelot - Projets',
         },
         {
@@ -78,13 +78,13 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content:
             'En plus de mon travail de consultant, je travail actuellement sur ces projets',
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: 'https://berthelot.io/subjects/projects',
         },
       ],

@@ -47,6 +47,9 @@ export default {
     }, 30000)
   },
   destroyed() {
+    if (this.face !== null) {
+      return
+    }
     clearInterval(this.interval)
   },
 }
