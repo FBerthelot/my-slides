@@ -225,7 +225,8 @@ export default {
   align-items: center;
 }
 .main-links ul {
-  width: 100%;
+  width: 60%;
+  margin: 0 20%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -233,6 +234,8 @@ export default {
 }
 .main-links ul a {
   text-decoration: none;
+  display: block;
+  margin: 0 1px;
 }
 .main-links ul a:focus {
   outline: none;

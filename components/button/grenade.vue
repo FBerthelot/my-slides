@@ -60,7 +60,6 @@ export default {
   color: transparent;
 
   border: 1px solid var(--color-medium);
-  box-shadow: 0 0 1rem var(--color-medium);
   padding: 1rem;
   cursor: pointer;
 }
@@ -161,7 +160,7 @@ export default {
 
 @keyframes deployButton {
   to {
-    background-color: var(--color-black);
+    background-color: var(--color-medium);
     border-radius: 0;
     color: var(--color-white);
     width: 6rem;
