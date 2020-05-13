@@ -53,35 +53,35 @@ export default {
   },
   head() {
     return {
-      title: 'Florent Berthelot - Supports de formations',
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('courses.title')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Supports de cours que j'utilise pour former au développement web.",
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'Florent Berthelot - Supports de formations',
+          content: `Florent Berthelot - ${this.$t('courses.title')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Florent Berthelot - Supports de formations',
+          content: `Florent Berthelot - ${this.$t('courses.title')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('courses.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            "Supports de cours que j'utilise pour former au développement web",
+          content: this.$t('courses.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            "Supports de cours que j'utilise pour former au développement web",
+          content: this.$t('courses.meta_description'),
         },
         {
           hid: 'og:url',

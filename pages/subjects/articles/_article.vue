@@ -35,6 +35,9 @@ export default {
   },
   head() {
     return {
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
       title: `Florent Berthelot - blog - ${this.article.name}`,
       meta: [
         {

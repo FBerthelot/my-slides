@@ -23,9 +23,13 @@
       </div>
 
       <Typography class="header--tagline" component="h2" variant="title--small">
-        <!--Design system and well-tested programs evangelist-->
-        Prêcheur des Design System et des programmes bien testés
+        {{ $t('home.tagline') }}
       </Typography>
+
+      <LanguageSwitcher
+        :class="{ 'language-switcher__visible': !videoIsRunning }"
+        class="language-switcher"
+      />
     </header>
 
     <main
@@ -35,48 +39,37 @@
       <nav class="main-links" v-if="!videoIsRunning">
         <ul>
           <li>
-            <nuxt-link to="/subjects/articles">
+            <nuxt-link :to="localePath('/subjects/articles')">
               <GrenadeButton component="div">
-                Articles
+                {{ $t('nav.articles') }}
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/subjects/courses">
+            <nuxt-link :to="localePath('/subjects/courses')">
               <GrenadeButton :throwIn="200" component="div">
-                Cours
+                {{ $t('nav.courses') }}
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/subjects/talks">
+            <nuxt-link :to="localePath('/subjects/talks')">
               <GrenadeButton :throwIn="550" component="div">
-                Talks
+                {{ $t('nav.talks') }}
               </GrenadeButton>
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/subjects/projects">
+            <nuxt-link :to="localePath('/subjects/projects')">
               <GrenadeButton component="div" :throwIn="300">
-                Projets
+                {{ $t('nav.projects') }}
               </GrenadeButton>
             </nuxt-link>
           </li>
         </ul>
       </nav>
       <Card class="presentation">
-        <Typography>
-          Je suis passionné du Web et des technologies qui gravitent autour.
-          J'aime le W3C, le TC39 (quand il ne smoosh pas devant moi), le WhatWG,
-          les frameworks JS (React, Vue.js, Node.js, Angular, ...) et la
-          vanille.
-          <br /><br />
-          Transmettre ma passion pour l'artisanat web occupe une part importante
-          de mon travail de développeur (meetups, formations, conférences,
-          encadrement de stagiaires).
-          <br /><br />
-          Vive le web, Vive le JS et Vive l'artisanat!
-        </Typography>
+        <Typography v-html="$t('home.presentation')"></Typography>
       </Card>
     </main>
     <Footer class="footer" :class="{ footer__visible: !videoIsRunning }" />
@@ -89,6 +82,7 @@ import { Logo } from '~/components/logo'
 import { Card } from '~/components/card'
 import Footer from '~/components/footer'
 import { Typography } from '~/components/typography'
+import LanguageSwitcher from '~/components/languageSwitcher'
 
 export default {
   components: {
@@ -97,6 +91,7 @@ export default {
     Logo,
     Card,
     Footer,
+    LanguageSwitcher,
   },
   data() {
     return {
@@ -110,38 +105,35 @@ export default {
   },
   head() {
     return {
-      title:
-        'Florent Berthelot - Prêcheur des Design System et des programmes bien testés',
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('home.tagline')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content:
-            'Florent Berthelot - Prêcheur des Design System et des programmes bien testé',
+          content: `Florent Berthelot - ${this.$t('home.tagline')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content:
-            'Florent Berthelot - Prêcheur des Design System et des programmes bien testé',
+          content: `Florent Berthelot - ${this.$t('home.tagline')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('home.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
+          content: this.$t('home.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            'Mon site où tu retrouvera mes articles, supports de cours, conférences, ...',
+          content: this.$t('home.meta_description'),
         },
         {
           hid: 'og:url',
@@ -200,6 +192,15 @@ export default {
   opacity: 0;
   transform: scale(0);
   animation: taglineAppear 3s linear 5s 1 forwards;
+}
+
+.language-switcher {
+  opacity: 0;
+  transition: all 4s linear;
+}
+
+.language-switcher__visible {
+  opacity: 1;
 }
 
 .main-content {

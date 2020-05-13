@@ -1,6 +1,6 @@
 <template>
   <div id="articles-page">
-    <Header title="Articles" />
+    <Header :title="$t('articles.title')" />
 
     <main class="subjects">
       <Card
@@ -60,35 +60,35 @@ export default {
   },
   head() {
     return {
-      title: "Florent Berthelot - blog d'un artisan du web",
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('articles.title')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: "Florent Berthelot - blog d'un artisan du web",
+          content: `Florent Berthelot - ${this.$t('articles.title')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: "Florent Berthelot - blog d'un artisan du web",
+          content: `Florent Berthelot - ${this.$t('articles.title')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('articles.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+          content: this.$t('articles.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            "J'écris sur le web, les tests, le JavaScript, les designs systems, ...",
+          content: this.$t('articles.meta_description'),
         },
         {
           hid: 'og:url',

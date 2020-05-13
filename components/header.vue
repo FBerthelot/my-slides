@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <nuxt-link :to="backLink" aria-label="Back to home"><Logo /></nuxt-link>
+      <nuxt-link :to="localePath(backLink)" aria-label="Back to home"
+        ><Logo
+      /></nuxt-link>
     </div>
 
     <Typography variant="header__title" component="h1" class="title">
@@ -11,48 +13,48 @@
     <div class="header__actions">
       <div class="tabs">
         <nuxt-link
-          to="/subjects/articles"
-          :tabindex="$route.path === '/subjects/articles' ? -1 : 0"
+          :to="localePath('/subjects/articles')"
+          :tabindex="$route.path.includes('/subjects/articles') ? -1 : 0"
         >
           <Typography
             class="tab"
-            :class="{ active: $route.path.startsWith('/subjects/articles') }"
+            :class="{ active: $route.path.includes('/subjects/articles') }"
             component="span"
           >
             Articles
           </Typography>
         </nuxt-link>
         <nuxt-link
-          to="/subjects/courses"
-          :tabindex="$route.path === '/subjects/courses' ? -1 : 0"
+          :to="localePath('/subjects/courses')"
+          :tabindex="$route.path.includes('/subjects/courses') ? -1 : 0"
         >
           <Typography
             class="tab"
-            :class="{ active: $route.path === '/subjects/courses' }"
+            :class="{ active: $route.path.includes('/subjects/courses') }"
             component="span"
           >
             Cours
           </Typography>
         </nuxt-link>
         <nuxt-link
-          to="/subjects/talks"
-          :tabindex="$route.path === '/subjects/talks' ? -1 : 0"
+          :to="localePath('/subjects/talks')"
+          :tabindex="$route.path.includes('/subjects/talks') ? -1 : 0"
         >
           <Typography
             class="tab"
-            :class="{ active: $route.path === '/subjects/talks' }"
+            :class="{ active: $route.path.includes('/subjects/talks') }"
             component="span"
           >
             Talks
           </Typography>
         </nuxt-link>
         <nuxt-link
-          to="/subjects/projects"
-          :tabindex="$route.path === '/subjects/projects' ? -1 : 0"
+          :to="localePath('/subjects/projects')"
+          :tabindex="$route.path.includes('/subjects/projects') ? -1 : 0"
         >
           <Typography
             class="tab"
-            :class="{ active: $route.path === '/subjects/projects' }"
+            :class="{ active: $route.path.includes('/subjects/projects') }"
             component="span"
           >
             Projets
@@ -60,17 +62,21 @@
         </nuxt-link>
       </div>
     </div>
+
+    <LanguageSwitcher />
   </header>
 </template>
 
 <script>
 import { Typography } from '~/components/typography'
 import { Logo } from '~/components/logo'
+import LanguageSwitcher from '~/components/languageSwitcher'
 
 export default {
   components: {
     Typography,
     Logo,
+    LanguageSwitcher,
   },
   props: {
     title: {

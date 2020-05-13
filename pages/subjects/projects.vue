@@ -1,6 +1,6 @@
 <template>
   <div id="projects-page">
-    <Header title="Projets" />
+    <Header :title="$t('projects.title')" />
 
     <main class="subjects">
       <Card
@@ -10,8 +10,10 @@
         :key="subject.name"
       >
         <CardTitle>{{ subject.name }}</CardTitle>
-        <Typography><span v-html="subject.description"></span></Typography>
-        <CardMeta>{{ subject.metaInfo }}</CardMeta>
+        <Typography
+          ><span v-html="subject.description[$i18n.locale]"></span
+        ></Typography>
+        <CardMeta>{{ subject.metaInfo[$i18n.locale] }}</CardMeta>
       </Card>
     </main>
 
@@ -52,35 +54,35 @@ export default {
   },
   head() {
     return {
-      title: 'Florent Berthelot - Projets',
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('projects.title')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'Florent Berthelot - Projets',
+          content: `Florent Berthelot - ${this.$t('projects.title')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Florent Berthelot - Projets',
+          content: `Florent Berthelot - ${this.$t('projects.title')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('projects.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
+          content: this.$t('projects.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            'En plus de mon travail de consultant, je travail actuellement sur ces projets.',
+          content: this.$t('projects.meta_description'),
         },
         {
           hid: 'og:url',

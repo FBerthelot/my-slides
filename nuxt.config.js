@@ -1,4 +1,6 @@
 import pkg from './package'
+import fr from './assets/fr.json'
+import en from './assets/en.json'
 
 export default {
   mode: 'universal',
@@ -8,7 +10,6 @@ export default {
    */
   head: {
     htmlAttrs: {
-      lang: 'fr',
       prefix: 'og: http://ogp.me/ns#',
     },
     title: 'Florent Berthelot - Web developer',
@@ -56,7 +57,33 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/markdownit', '@nuxtjs/robots'],
+  modules: [
+    '@nuxtjs/markdownit',
+    'nuxt-i18n',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+  ],
+
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
+    vueI18n: {
+      messages: {
+        en,
+        fr,
+      },
+    },
+  },
+  sitemap: {
+    hostname: 'https://berthelot.io',
+    gzip: true,
+    i18n: 'en',
+  },
+  robots: {
+    UserAgent: '*',
+    Disallow: '',
+    Sitemap: 'https://berthelot.io/sitemap.xml',
+  },
 
   markdownit: {
     preset: 'default',

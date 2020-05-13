@@ -1,6 +1,6 @@
 <template>
   <div id="talks-page">
-    <Header title="Sujets de conférences" />
+    <Header :title="$t('talks.title')" />
 
     <main class="subjects">
       <Card v-for="subject in subjects" class="subject" :key="subject.name">
@@ -11,14 +11,16 @@
         <CardVideo
           v-if="subject.video"
           :video="subject.video"
-          title="video of the talk"
+          :title="$t('talks.video_title')"
         />
 
-        <CardLink :href="subject.slides">Lien vers les slides</CardLink>
+        <CardLink :href="subject.slides" target="_blank" rel="noopener">{{
+          $t('talks.slide_link')
+        }}</CardLink>
 
         <CardSecondary v-if="subject.alternatives">
           <Typography variant="title--extra-small">
-            L'ensemble des versions
+            {{ $t('talks.alternative') }}
           </Typography>
           <ul>
             <Typography
@@ -31,15 +33,17 @@
                 component="a"
                 v-if="alternative.video"
                 target="_blank"
+                rel="noopener"
                 :href="alternative.video"
-                >Video</Typography
+                >{{ $t('talks.alternative_video') }}</Typography
               >
               <Typography
                 component="a"
                 v-if="alternative.slide"
                 target="_blank"
+                rel="noopener"
                 :href="alternative.slide"
-                >Slides</Typography
+                >{{ $t('talks.alternative_slide') }}</Typography
               >
               - {{ alternative.date }}
             </Typography>
@@ -85,32 +89,35 @@ export default {
   },
   head() {
     return {
-      title: 'Florent Berthelot - Sujets de conférences',
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('talks.title')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: "Liste des conférences que j'ai eu la chance de donner.",
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'Florent Berthelot - Sujets de conférences',
+          content: `Florent Berthelot - ${this.$t('talks.title')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Florent Berthelot - Sujets de conférences',
+          content: `Florent Berthelot - ${this.$t('talks.title')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('talks.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: "Liste des conférences que j'ai eu la chance de donner.",
+          content: this.$t('talks.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: "Liste des conférences que j'ai eu la chance de donner.",
+          content: this.$t('talks.meta_description'),
         },
         {
           hid: 'og:url',

@@ -1,0 +1,38 @@
+{
+  "home": {
+    "tagline": "Design system and well-tested programs evangelist",
+    "presentation": "I love Web and all related technologies. I love the W3C, TC39, WhatWG, all JS frameworks (React, Vue.js, Node.js, Angular, ...) and vanilla because they allow me to learn everyday. <br/><br/>Share my passion for web craftsmanship is an important part of my developer job (Meetup, Courses, Conferences, training interns). <br/><br/>Long live to the Web, the JS and the Craftsmanship !",
+    "meta_description": "You will find here my articles, courses, conferences talks, ..."
+  },
+  "love": {
+    "title": "I love my girlfriend",
+    "meta_description": "Here is the draw of my beloved"
+  },
+  "talks": {
+    "title": "Conferences talks",
+    "meta_description": "List of conferences I had the chance to annimate.",
+    "video_title": "Video of the conference",
+    "slide_link": "Slide link",
+    "alternative": "Alternative versions",
+    "alternative_video": "Video",
+    "alternative_slide": "Slides"
+  },
+  "projects": {
+    "title": "Projects",
+    "meta_description": "I'm not only a contractor, I also work on these side-projects."
+  },
+  "courses": {
+    "title": "Courses",
+    "meta_description": "I use those material to give courses on web development."
+  },
+  "articles": {
+    "title": "Blog",
+    "meta_description": "I write on web, tests, JavaScript, designs systems, ..."
+  },
+  "nav": {
+    "articles": "Articles",
+    "courses": "Courses",
+    "talks": "Talks",
+    "projects": "Projects"
+  }
+}

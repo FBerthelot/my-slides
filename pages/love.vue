@@ -24,35 +24,35 @@ export default {
   },
   head() {
     return {
-      title: "Florent Berthelot - Ma pacsé, je l'aime!",
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      title: `Florent Berthelot - ${this.$t('love.title')}`,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Sur cette page, vous trouverez des dessins de ma bien aimée',
-        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: "Florent Berthelot - Ma pacsé, je l'aime!",
+          content: `Florent Berthelot - ${this.$t('love.title')}`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: "Florent Berthelot - Ma pacsé, je l'aime!",
+          content: `Florent Berthelot - ${this.$t('love.title')}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('love.meta_description'),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            'Sur cette page, vous trouverez des dessins de ma bien aimée',
+          content: this.$t('love.meta_description'),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            'Sur cette page, vous trouverez des dessins de ma bien aimée',
+          content: this.$t('love.meta_description'),
         },
         {
           hid: 'og:url',
