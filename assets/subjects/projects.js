@@ -12,9 +12,9 @@ export default [
     Pour l'instant seul react est supporté, mais si le projet prends, alors d'autres frameworks verrons le jour
 `,
       en: `
-    Tool between enzyme and test-utils to test components.
+    A tool between Enzyme and Test-Utils to test components.
     <br/><br/>
-    Only react is supported now, but if project meet his public other frameworks will be supported.
+    Only React is supported now, but if this project meets it's public, other frameworks will be supported.
   `,
     },
     link: 'https://component-test-utils.berthelot.io/',
@@ -27,9 +27,9 @@ export default [
     },
     description: {
       fr: `
-    C'est ma boite, pour l'instant je suis seul et me vend en tant que dev freelance.
+    C'est ma boite! Pour l'instant je me vends en tant que dev freelance.
 `,
-      en: `My company. I'm the only one in it for now and I sell myself as a freelance web developer.`,
+      en: `My brand new company! For now I sell myself as a freelance web developer.`,
     },
   },
   {
@@ -42,7 +42,7 @@ export default [
       fr: `
     Application de sport qui s'adapte un maximum aux utilisateurs et à leur environnement.
 `,
-      en: `Sport application that adapt itself to users and their environnement.`,
+      en: `Sport app that adapts itself to it's users and their environnement.`,
     },
   },
   {
@@ -55,7 +55,7 @@ export default [
       fr: `
     Application permettant de gérer le vivant des aquariums.
 `,
-      en: `Application to manage life in aquariums`,
+      en: `App to manage aquariums' fauna.`,
     },
   },
 ].map((s) => ({ ...s, type: 'project' }))

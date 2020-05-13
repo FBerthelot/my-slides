@@ -21,7 +21,7 @@
             :class="{ active: $route.path.includes('/subjects/articles') }"
             component="span"
           >
-            Articles
+            {{ $t('nav.articles') }}
           </Typography>
         </nuxt-link>
         <nuxt-link
@@ -33,7 +33,7 @@
             :class="{ active: $route.path.includes('/subjects/courses') }"
             component="span"
           >
-            Cours
+            {{ $t('nav.courses') }}
           </Typography>
         </nuxt-link>
         <nuxt-link
@@ -45,7 +45,7 @@
             :class="{ active: $route.path.includes('/subjects/talks') }"
             component="span"
           >
-            Talks
+            {{ $t('nav.talks') }}
           </Typography>
         </nuxt-link>
         <nuxt-link
@@ -57,7 +57,7 @@
             :class="{ active: $route.path.includes('/subjects/projects') }"
             component="span"
           >
-            Projets
+            {{ $t('nav.projects') }}
           </Typography>
         </nuxt-link>
       </div>
