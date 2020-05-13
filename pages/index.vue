@@ -68,9 +68,11 @@
           </li>
         </ul>
       </nav>
-      <Card class="presentation">
-        <Typography v-html="$t('home.presentation')"></Typography>
-      </Card>
+      <no-ssr>
+        <Card class="presentation">
+          <Typography v-html="$t('home.presentation')"></Typography>
+        </Card>
+      </no-ssr>
     </main>
     <Footer class="footer" :class="{ footer__visible: !videoIsRunning }" />
   </div>
