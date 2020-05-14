@@ -66,7 +66,7 @@ export default {
 
   i18n: {
     locales: ['en', 'fr'],
-    defaultLocale: 'en',
+    defaultLocale: 'fr',
     vueI18n: {
       messages: {
         en,
