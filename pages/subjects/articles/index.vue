@@ -12,13 +12,15 @@
       >
         <CardTitle>{{ subject.name }}</CardTitle>
         <Typography><span v-html="subject.description"></span></Typography>
-        <CardMeta>{{
-          subject.date.toLocaleString('fr-FR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })
-        }}</CardMeta>
+        <no-ssr>
+          <CardMeta>{{
+            subject.date.toLocaleString($i18n.locale, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+          }}</CardMeta>
+        </no-ssr>
       </Card>
     </main>
 
