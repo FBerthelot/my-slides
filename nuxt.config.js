@@ -2,6 +2,10 @@ import pkg from './package'
 import fr from './assets/fr.json'
 import en from './assets/en.json'
 
+import Prism from 'prismjs'
+import loadLanguages from 'prismjs/components/'
+loadLanguages(['jsx'])
+
 export default {
   mode: 'universal',
 
@@ -91,6 +95,9 @@ export default {
     linkify: true,
     breaks: true,
     use: ['markdown-it-footnote', 'markdown-it-ins', 'markdown-it-emoji'],
+    highlight: function (str, lang) {
+      return Prism.highlight(str, Prism.languages[lang], lang)
+    },
   },
 
   /*
@@ -113,6 +120,6 @@ export default {
     },
   },
   generate: {
-    routes: ['/subjects/articles/hello-world'],
+    routes: ['/subjects/articles/react-test-refactoring-snapshot'],
   },
 }
