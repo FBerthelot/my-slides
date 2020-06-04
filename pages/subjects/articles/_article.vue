@@ -186,6 +186,7 @@ export default {
   background-color: var(--color-white);
   border: 1px solid var(--color-light);
   border-radius: 0.125rem;
+  overflow-x: auto;
 }
 
 .article pre code {
