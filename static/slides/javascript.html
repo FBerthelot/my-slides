@@ -727,7 +727,8 @@
                   fetch('http://slowAPI.com/toto'),
                   fetch('http://fastAPI.com/toto')
                 ])
-                  .then((result) => console.log('probably fastAPI', result));
+                  .then((result) => console.log('probably fastAPI', result))
+                  .catch((err) => console.error('first error', err));
 
                 Promise.all([
                   fetch('http://slowAPI.com/toto'),
@@ -1287,7 +1288,61 @@
               <!-- .slide: data-background="#EDEEC9" -->
               # ES2020
 
-              The class will probably be private
+              Dynamic Imports ans many more !
+
+
+              <!-- .slide: data-background="#EDEEC9" -->
+              ## dynamic import()
+
+              ```JavaScript
+              import('http://cdn/d3.js')
+                .then(d3 => {
+                  d3.makeABeautifulChart();
+                });
+              ```
+
+
+              <!-- .slide: data-background="#EDEEC9" -->
+              ## Optional Chaining
+
+              ```javascript
+              const cat = {
+                status: {
+                  isAlive: 'maybe'
+                }
+              };
+
+              console.log(cat.status?.isAlive); // 'maybe'
+
+              delete cat.status;
+
+              console.log(cat.status?.isAlive); // undefined
+              ```
+
+
+              <!-- .slide: data-background="#EDEEC9" -->
+              ## Nullish Coalescing Operator
+
+              ```javascript
+              const cat = {
+                isCute: false,
+                location: null,
+                goal: undefined,
+                killedMouses: 0,
+              };
+
+              const catIsCute = cat.isCute ?? true; // false
+              const catIsCute2 = cat.isCute || true; // true
+
+              const catkilledMouses = cat.killedMouses ?? 100; // 0
+              const catkilledMouses2 = cat.killedMouses || 100; // 100
+
+              const catLocation = cat.location ?? 'hidden'; // 'hidden'
+              const catLocation2 = cat.location || 'hidden'; // 'hidden'
+
+              const catGoal = cat.goal ?? 'destroy the world'; // 'destroy the world'
+              const catGoal2 = cat.goal || 'destroy the world'; // 'destroy the world'
+              ```
 
 
               <!-- .slide: data-background="#EDEEC9" -->
@@ -1299,13 +1354,19 @@
 
 
               <!-- .slide: data-background="#EDEEC9" -->
-              ## dynamic import()
+              ## String.prototype.matchAll()
 
               ```JavaScript
-              import('http://cdn/d3.js')
-                .then(d3 => {
-                  d3.makeABeautifulChart();
-                });
+              const regex = /toto/g;
+              const text = "toto et toto sont dans un bateau";
+
+              console.log(text.match(regex));
+              // ["toto", "toto"]
+
+              const matches = text.matchAll(regex);
+              console.log(matches.next()); // {done: false, value: ["toto"]} with full info of this match
+              console.log(matches.next()); // {done: false, value: ["toto"]}
+              console.log(matches.next()); // {done: true, value: undefined}
               ```
 
 
@@ -1327,6 +1388,31 @@
 
 
               <!-- .slide: data-background="#EDEEC9" -->
+              ## Promise.allSettled
+
+              ```javascript
+              Promise.all([
+                Promise.reject(42),
+                Promise.resolve(70)
+              ])
+                .then(() => console.log('never called'));
+
+              Promise.allSettled([
+                Promise.reject(42),
+                Promise.resolve(70)
+              ])
+                .then((resultAndError) => console.log('called'));
+              ```
+
+
+
+              <!-- .slide: data-background="#152d4d" -->
+              # ES2021
+
+              Deeper than ES2020.
+
+
+              <!-- .slide: data-background="#152d4d" -->
               ## Numeric Separators
 
               ```javascript
@@ -1342,53 +1428,94 @@
               ```
 
 
-              <!-- .slide: data-background="#EDEEC9" -->
-              ## Classes updates
+              <!-- .slide: data-background="#152d4d" -->
+              ## Promise.any
 
+              Comme Promise.race mais avec une gestion d'erreur différente.
               ```javascript
-              class Counter {
-                #xValue = 0;
-                yolo = 42;
+                Promise.race([
+                  fetch('http://slowAPI.com/toto'),
+                  fetch('http://fastAPI.com/toto')
+                ])
+                  .then((result) => console.log('probably fastAPI', result))
+                  .catch((err) => console.error('first error', err));
 
-                // getter for private are possible
-                get #x() { return #xValue; }
-                set #x(value) {
-                  this.#xValue = value;
-                }
-
-                // static field are ok too
-                static thisIsUseful = 'no';
-              }
+                Promise.any([
+                  fetch('http://slowAPI.com/toto'),
+                  fetch('http://fastAPI.com/toto')
+                ])
+                .then((result) => console.log('probably fastAPI', result))
+                .catch((err) => console.error('all errors', err.map(e => e.message).join('\n')));
               ```
 
 
-              <!-- .slide: data-background="#EDEEC9" -->
-              ## Hashbang
+              <!-- .slide: data-background="#152d4d" -->
+              ## String .replaceAll()
 
-              ```javascript
-              #!/usr/bin/env node
-              // in the Script Goal
-              'use strict';
+              ```JavaScript
+              const text = "toto et toto sont dans un bateau";
 
-              console.log(1);
+              text.replace('toto', 'tata');
+              // "tata et toto sont dans un bateau"
+
+              text.replace(/toto/g, 'tata');
+              // "tata et tata sont dans un bateau"
+
+              text.replaceAll('toto', 'tata');
+              // "tata et tata sont dans un bateau"
               ```
 
 
-              <!-- .slide: data-background="#EDEEC9" -->
-              ## Promise.allSettled
+              <!-- .slide: data-background="#152d4d" -->
+              ## Logical Assignment
 
-              ```javascript
-              Promise.all([
-                Promise.reject(42),
-                Promise.resolve(70)
-              ])
-                .then(() => console.log('never called'));
+              ```JavaScript
+              let a = 1;
+              let b = 2;
 
-              Promise.allSettled([
-                Promise.reject(42),
-                Promise.resolve(70)
-              ])
-                .then((resultAndError) => console.log('called'));
+              a ||= b;
+              // a === 1
+
+              a &&= b;
+              // a === 2
+
+              a ??= 'beta';
+              // a === 2;
+              ```
+
+
+              <!-- .slide: data-background="#152d4d" -->
+              ## WeakRef
+
+              Utile pour du cache !
+
+              ```JavaScript
+             const maRef = new WeakRef({toto: 42});
+
+             console.log(maRef.deref());
+             // {toto: 42}
+
+             console.log(maRef.deref());
+             // {toto: 42} ou undefined si le garbage collector est passé
+              ```
+
+
+            <!-- .slide: data-background="#152d4d" -->
+              ## Finalizers
+
+              Le compagnon de WeakRef pour intéragir avec le garbage collector.
+
+              ```JavaScript
+             const maRef = new WeakRef({toto: 42});
+             const registry = new FinalizationRegistry((value) => {
+                console.log(value);
+              });
+
+            registry.register(maRef, 'hello');
+
+            maRef.deref();
+
+            // Affichera 'hello' quand maRef sera garbage collecté
               ```
 
 
