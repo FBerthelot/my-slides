@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://berthelot.io/sitemap.xml
